@@ -19,7 +19,6 @@ public class ProjectController {
     public ProjectController(ProjectService projectService) {
         this.projectService = projectService;
     }
-
     @GetMapping
     public ResponseEntity<ResponseWrapper> getProjects(){
         List<ProjectDTO> projectDTOList = projectService.listAllProjects();
