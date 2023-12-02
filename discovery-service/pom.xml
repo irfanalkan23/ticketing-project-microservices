@@ -19,11 +19,13 @@
 <!--    </properties>-->
 
     <dependencies>
+        <!-- we don't put <version> in dependencies, because versions are in parent pom -->
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
             <exclusions>
+                <!-- I exclude ribbon, because I don't want eureka to do the load balancing -->
                 <exclusion>
                     <groupId>org.springframework.cloud</groupId>
                     <artifactId>spring-cloud-starter-ribbon</artifactId>
@@ -40,5 +42,28 @@
         </dependency>
 
     </dependencies>
+
+    <!-- I need this build for building image. available in other services as well. -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <name>${project.groupId}/discovery-service:${project.version}</name>
+                    </image>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>build-image</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
