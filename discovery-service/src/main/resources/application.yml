@@ -11,6 +11,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://discovery-service:8761/eureka/
-#      "don't register this service in itself (Eureka)
+#      "don't register this service in itself (Eureka)":
     register-with-eureka: false
     fetch-registry: false

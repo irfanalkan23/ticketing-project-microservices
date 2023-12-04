@@ -17,3 +17,33 @@ spring:
     driver-class-name: org.postgresql.Driver
 server:
   port: 9091
+
+eureka:
+  instance:
+    status-page-url-path: ${management.context-path}/info
+    health-check-url-path: ${management.context-path}/health
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka/
+# this last one is telling where to register (where is eureka)
+# address is not localhost, because it will run in Docker
+
+management:
+  endpoint:
+    health:
+      show-details: "ALWAYS"
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  context-path: http://localhost:${server.port}/actuator
+
+
+info:
+  application:
+    name: ${spring.application.name}
+    description: Ticketing Application
+    #    getting versions from Maven;
+    version: '@project.version@'
+    spring-cloud-version: '@spring-cloud.version@'
+    spring-boot-version: '@project.parent.version@'

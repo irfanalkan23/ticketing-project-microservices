@@ -43,7 +43,7 @@
 
     </dependencies>
 
-    <!-- I need this build for building image. available in other services as well. -->
+    <!-- I need this build for building image, instead of Dockerfile. available in other services as well. -->
     <build>
         <plugins>
             <plugin>
