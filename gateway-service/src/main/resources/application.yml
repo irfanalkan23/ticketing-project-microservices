@@ -9,6 +9,29 @@ spring:
           enabled: true
           lower-case-service-id: true
 
+# manual configuration, in addition to the default mapping.
+# localhost://8762/cydeo/dev/task-service/api/v1/task  will also be mapped to /task-service
+# this manual configuration can also be done in java in the runner class
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/cydeo/dev/user/**
+          filters:
+            - RewritePath=/cydeo/dev/user/(?<segment>.*),/$\{segment}
+        - id: project-service
+          uri: lb://project-service
+          predicates:
+            - Path=/cydeo/dev/project/**
+          filters:
+            - RewritePath=/cydeo/dev/project/(?<segment>.*),/$\{segment}
+        - id: task-service
+          uri: lb://task-service
+          predicates:
+            - Path=/cydeo/dev/task/**
+          filters:
+            - RewritePath=/cydeo/dev/task/(?<segment>.*),/$\{segment}
+
 # entry point:
 server:
   port: 8762
