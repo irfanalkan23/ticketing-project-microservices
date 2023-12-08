@@ -32,6 +32,14 @@ spring:
           filters:
             - RewritePath=/cydeo/dev/task/(?<segment>.*),/$\{segment}
 
+  # line up with cloud. it belongs to Spring.
+  # registering the services to Zipkin:
+  sleuth:
+    sampler:
+      probability: 1
+  zipkin:
+    base-url: http://host.docker.internal:9411
+
 # entry point:
 server:
   port: 8762

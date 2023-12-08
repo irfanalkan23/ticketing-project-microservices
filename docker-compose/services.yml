@@ -75,6 +75,18 @@ services:
     networks:
       - backend
 
+  # line up with other services.
+  # microservices monitoring:
+  # zipkin is a UI tool. we pull the image from Docker and use in port 9411
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - backend
+
+
 networks:
   backend:
     driver: bridge
