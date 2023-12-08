@@ -1,10 +1,10 @@
 spring:
 
   # line up with cloud. it belongs to Spring.
-  # registering the services to Zipkin:
   sleuth:
     sampler:
       probability: 1
+  # registering the services to Zipkin:
   zipkin:
     base-url: http://host.docker.internal:9411
 
