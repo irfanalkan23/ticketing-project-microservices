@@ -151,13 +151,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
-            <version>3.0.2</version>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
