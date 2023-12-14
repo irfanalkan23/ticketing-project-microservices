@@ -44,6 +44,13 @@
             <artifactId>spring-cloud-sleuth-zipkin</artifactId>
         </dependency>
 
+        <!-- swagger -->
+        <!-- only webflux-ui in gateway-service, because ui is in the gateway-service -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-webflux-ui</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

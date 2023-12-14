@@ -96,6 +96,12 @@
             <artifactId>micrometer-core</artifactId>
         </dependency>
 
+        <!-- swagger -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-webmvc-core</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
